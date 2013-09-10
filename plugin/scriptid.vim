@@ -4,7 +4,7 @@
 " http://mattn.kaoriya.net/software/vim/20090826003359.htm
 "
 " author: mattn
-function! GetScriptID(fname)
+function! scriptid#GetScriptID(fname)
 	let snlist = ''
 	redir => snlist
 	silent! scriptnames
@@ -17,12 +17,12 @@ function! GetScriptID(fname)
 	return smap[tolower(a:fname)]
 endfunction
 
-function! GetFunc(fname, funcname)
-	let sid = GetScriptID(a:fname)
+function! scriptid#GetFunc(fname, funcname)
+	let sid = scriptid#GetScriptID(a:fname)
 	return function("<SNR>".sid."_".a:funcname)
 endfunction
 
-function! HookFunc(funcA, funcB)
+function! scriptid#HookFunc(funcA, funcB)
 	if type(a:funcA) == 2
 		let funcA = substitute(string(a:funcA), "^function('\\(.*\\)')$", '\1', '')
 	else

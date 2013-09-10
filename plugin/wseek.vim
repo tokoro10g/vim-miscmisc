@@ -5,7 +5,7 @@
 "
 " modified by Tokoro (tokoro10g@tokor.org)
 
-function! WSeek(target) 
+function! s:WSeek(target) 
   if !has('python')
     echo "Error: this plugin requires vim with +python"
     finish
@@ -32,4 +32,4 @@ EOF
   endif
 endfunction 
 
-command! -nargs=1 WSeek :call WSeek(<q-args>)
+command! -nargs=1 WSeek :call s:WSeek(<q-args>)
